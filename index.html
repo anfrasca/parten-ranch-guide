@@ -1,0 +1,2262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parten Ranch HOA Guide | Know Your Rights & Rules</title>
+    <style>
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+    --bg: #f6f4ef;
+    --surface: #fdfcf9;
+    --surface-2: #f5f2eb;
+    --surface-3: #eeeadf;
+    --text: #1e241f;
+    --text-2: #4c564e;
+    --text-3: #6c746d;
+    --line: #ddd7cc;
+    --line-soft: #e8e3d8;
+    --accent: #556b59;
+    --accent-soft: #e8eee8;
+    --warm: #9c6c32;
+    --warm-soft: #f4ede2;
+    --danger: #8c5a4b;
+    --danger-soft: #f5ece8;
+    --shadow: 0 8px 24px rgba(24, 31, 26, 0.04);
+    --radius-sm: 12px;
+    --radius-md: 18px;
+    --radius-lg: 26px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+strong { color: var(--text); }
+
+.mobile-header {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 56px;
+    background: rgba(253, 252, 249, 0.9);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line-soft);
+    z-index: 300;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0 1rem;
+}
+.mobile-header h1 {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text);
+}
+.hamburger {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 1.35rem;
+    line-height: 1;
+    cursor: pointer;
+}
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 25, 22, 0.28);
+    z-index: 199;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 236px;
+    height: 100vh;
+    background: rgba(249, 247, 242, 0.9);
+    backdrop-filter: blur(12px);
+    border-right: 1px solid var(--line-soft);
+    overflow-y: auto;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar-brand {
+    padding: 1.1rem 1.15rem 0.9rem;
+    border-bottom: 1px solid var(--line-soft);
+}
+.sidebar-brand h1 {
+    font-size: 0.98rem;
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+}
+.brand-sub, .sidebar-contact { display: none; }
+.sidebar-nav {
+    flex: 1;
+    padding: 0.55rem 0;
+}
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.56rem 1.1rem;
+    text-decoration: none;
+    color: var(--text-2);
+    font-size: 0.85rem;
+    line-height: 1.35;
+    border-left: 2px solid transparent;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+.sidebar-nav a:hover {
+    background: rgba(85, 107, 89, 0.05);
+    color: var(--text);
+}
+.sidebar-nav a.active {
+    background: rgba(85, 107, 89, 0.08);
+    color: var(--text);
+    border-left-color: var(--accent);
+    font-weight: 600;
+}
+.nav-num {
+    width: 21px;
+    height: 21px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 999px;
+    background: var(--surface-2);
+    color: var(--text-3);
+    font-size: 0.66rem;
+    font-weight: 700;
+}
+.sidebar-nav a.active .nav-num {
+    background: var(--accent);
+    color: #fff;
+}
+
+.main {
+    margin-left: 236px;
+    min-height: 100vh;
+}
+.hero {
+    padding: 2rem 3rem 1rem;
+    border-bottom: 1px solid var(--line-soft);
+    background: transparent;
+}
+.hero h2 {
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    line-height: 1.02;
+    letter-spacing: -0.05em;
+    font-weight: 700;
+    max-width: 10ch;
+    color: var(--text);
+    margin-bottom: 0.7rem;
+}
+.hero p {
+    max-width: 760px;
+    font-size: 0.95rem;
+    color: var(--text-2);
+}
+.disclaimer-bar {
+    margin-top: 0.85rem;
+    max-width: 760px;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--line-soft);
+    font-size: 0.78rem;
+    color: var(--text-3);
+}
+.disclaimer-bar strong { color: var(--text-2); }
+
+.search-bar-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0.75rem 3rem 0.9rem;
+    background: rgba(246, 244, 239, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(232, 227, 216, 0.9);
+}
+.search-bar {
+    position: relative;
+    max-width: 560px;
+}
+.search-bar input {
+    width: 100%;
+    padding: 0.92rem 1rem 0.92rem 2.7rem;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 0.92rem;
+    outline: none;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+.search-bar input:focus {
+    border-color: rgba(85, 107, 89, 0.5);
+    box-shadow: 0 0 0 4px rgba(85, 107, 89, 0.08);
+    background: #fff;
+}
+.search-bar input::placeholder { color: var(--text-3); }
+.search-bar .search-icon-svg {
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--text-3);
+    pointer-events: none;
+}
+.search-results-count {
+    font-size: 0.77rem;
+    color: var(--text-3);
+    margin-top: 0.35rem;
+    padding-left: 0.3rem;
+}
+
+.content-area {
+    padding: 1.2rem 3rem 4rem;
+}
+.container {
+    max-width: 860px;
+}
+.section {
+    margin-bottom: 0.65rem;
+    background: var(--surface);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.18s ease;
+}
+.section-header:hover {
+    background: rgba(85, 107, 89, 0.03);
+}
+.section-header h2 {
+    font-size: 1rem;
+    line-height: 1.35;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    flex: 1;
+}
+.toggle-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--surface-2);
+    color: var(--text-2);
+    font-size: 0.82rem;
+    transition: transform 0.2s ease, background 0.18s ease;
+}
+.toggle-icon.collapsed { transform: rotate(-90deg); }
+.section-content {
+    display: none;
+    padding: 0 1.2rem 1.3rem;
+    animation: fadeIn 0.2s ease;
+}
+.section-content.active { display: block; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-2px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.section-content h3 {
+    font-size: 0.94rem;
+    font-weight: 650;
+    color: var(--text);
+    margin: 1.15rem 0 0.5rem;
+}
+.section-content h3:first-child { margin-top: 0.2rem; }
+.section-content h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    margin: 0 0 0.4rem;
+}
+.section-content p,
+.section-content li,
+.rule-item,
+.law-box p,
+.warning-box p,
+.protection-box p {
+    font-size: 0.9rem;
+    color: var(--text-2);
+}
+.section-content p {
+    margin-bottom: 0.72rem;
+}
+.section-content ul,
+.section-content ol {
+    margin: 0.35rem 0 0.9rem 1.15rem;
+}
+.section-content li {
+    margin-bottom: 0.35rem;
+}
+.legal-reference {
+    margin-top: -0.2rem;
+    font-size: 0.8rem;
+    color: var(--text-3);
+}
+.rule-item,
+.law-box,
+.warning-box,
+.protection-box {
+    margin: 0.75rem 0;
+    padding: 0.85rem 0.95rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line-soft);
+    background: var(--surface-2);
+}
+.rule-item {
+    background: #f8f5ef;
+}
+.rule-item strong { color: var(--text); }
+.law-box {
+    background: var(--warm-soft);
+    border-left: 3px solid var(--warm);
+}
+.law-box h4 { color: #7a5326; }
+.warning-box {
+    background: var(--danger-soft);
+    border-left: 3px solid var(--danger);
+}
+.warning-box h4 {
+    color: #74463a;
+    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+}
+.warning-box h4::before {
+    content: 'Note';
+    display: inline-block;
+    margin-right: 0.4rem;
+    padding: 0.14rem 0.38rem;
+    border-radius: 999px;
+    background: rgba(140, 90, 75, 0.12);
+    font-size: 0.66rem;
+    letter-spacing: 0.04em;
+}
+.protection-box {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+}
+.protection-box h4 {
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+}
+.protection-box ul { margin: 0.35rem 0 0.2rem 1.1rem; }
+
+.footer {
+    margin-left: 236px;
+    padding: 1.5rem 3rem 2.5rem;
+    border-top: 1px solid var(--line-soft);
+    color: var(--text-3);
+    font-size: 0.78rem;
+    background: transparent;
+    text-align: left;
+}
+.footer strong { color: var(--text-2); }
+.footer p { margin-bottom: 0.25rem; }
+.back-to-top {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(253, 252, 249, 0.92);
+    color: var(--text);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: var(--shadow);
+}
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.highlight {
+    background: #f5e4a3;
+    color: var(--text);
+    padding: 0 2px;
+    border-radius: 3px;
+}
+.toc-section { display: none; }
+
+@media (max-width: 900px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.22s ease;
+    }
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-overlay.active { display: block; }
+    .mobile-header { display: flex; }
+    .main, .footer { margin-left: 0; }
+    .main { padding-top: 56px; }
+    .hero { padding: 1.6rem 1.25rem 0.9rem; }
+    .hero h2 { font-size: 1.7rem; max-width: none; }
+    .search-bar-wrap { padding: 0.75rem 1.25rem 0.85rem; }
+    .content-area { padding: 1rem 1rem 3rem; }
+    .section-header, .section-content { padding-left: 1rem; padding-right: 1rem; }
+    .footer { padding: 1.25rem 1rem 2rem; }
+    .toc-section { display: block; }
+}
+
+@media (max-width: 520px) {
+    .hero p { font-size: 0.9rem; }
+    .section-header h2 { font-size: 0.94rem; }
+    .section-content p,
+    .section-content li,
+    .rule-item,
+    .law-box p,
+    .warning-box p,
+    .protection-box p { font-size: 0.88rem; }
+}
+
+@media print {
+    .sidebar, .mobile-header, .search-bar-wrap, .back-to-top, .sidebar-overlay { display: none !important; }
+    .main, .footer { margin-left: 0 !important; }
+    .section { break-inside: avoid; }
+    .section-content { display: block !important; }
+    body { background: #fff; }
+}
+
+</style>
+</head>
+<body>
+
+    <!-- Mobile header -->
+    <div class="mobile-header">
+        <button class="hamburger" onclick="openSidebar()">&#9776;</button>
+        <h1>Parten Ranch HOA Guide</h1>
+    </div>
+
+    <!-- Sidebar overlay (mobile) -->
+    <div class="sidebar-overlay"></div>
+
+    <!-- Sidebar navigation -->
+    <nav class="sidebar">
+        <div class="sidebar-brand">
+            <h1>Parten Ranch<br>HOA Guide</h1>
+            <div class="brand-sub">Know Your Rights & Rules &middot; 78737</div>
+        </div>
+        <div class="sidebar-nav">
+            <a href="#section-1"><span class="nav-num">1</span> How This HOA Works</a>
+            <a href="#section-2"><span class="nav-num">2</span> Pools, Spas & Hot Tubs</a>
+            <a href="#section-3"><span class="nav-num">3</span> Pergolas & Outdoor Structures</a>
+            <a href="#section-4"><span class="nav-num">4</span> Fences & Walls</a>
+            <a href="#section-5"><span class="nav-num">5</span> Landscaping & Yard</a>
+            <a href="#section-6"><span class="nav-num">6</span> Solar Panels & Energy</a>
+            <a href="#section-7"><span class="nav-num">7</span> Roofs & Exterior</a>
+            <a href="#section-8"><span class="nav-num">8</span> Garages & Driveways</a>
+            <a href="#section-9"><span class="nav-num">9</span> Sports Equipment & Play</a>
+            <a href="#section-10"><span class="nav-num">10</span> Flags, Signs & Displays</a>
+            <a href="#section-11"><span class="nav-num">11</span> Security & Generators</a>
+            <a href="#section-12"><span class="nav-num">12</span> Vehicles & Storage</a>
+            <a href="#section-13"><span class="nav-num">13</span> Pets & Animals</a>
+            <a href="#section-14"><span class="nav-num">14</span> Construction Rules</a>
+            <a href="#section-15"><span class="nav-num">15</span> Your Rights vs. HOA</a>
+            <a href="#section-16"><span class="nav-num">16</span> Submitting Requests</a>
+            <a href="#section-17"><span class="nav-num">17</span> Contacts & Resources</a>
+        </div>
+</nav>
+
+    <!-- Main content -->
+    <div class="main">
+        <!-- Hero -->
+        <div class="hero">
+            <h2>Know Your Rights & Rules</h2>
+            <p>A resident-created reference for Parten Ranch. Search by topic, verify HOA claims against the governing documents, and quickly find the rules that matter to your project.</p>
+            <div class="disclaimer-bar">
+                <strong>Disclaimer:</strong> This guide references official governing documents recorded in Hays County. Always verify with original documents. This is not legal advice.
+            </div>
+        </div>
+
+        <!-- Search bar -->
+        <div class="search-bar-wrap">
+            <div class="search-bar">
+                <svg class="search-icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <input type="text" id="searchInput" placeholder="Search the guide">
+            </div>
+            <div class="search-results-count" id="searchResultsCount"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="content-area">
+    <div class="container">
+        <!-- Section 1: How This HOA Works -->
+        <div class="section" id="section-1">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>1. How This HOA Works</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Development Period Control</h3>
+                <p>Parten Ranch is currently in the <strong>"Development Period"</strong> where the builder, <strong>HM Parten Development, Inc.</strong>, retains significant control over the community. This has important implications for your rights.</p>
+
+                <div class="law-box">
+                    <h4>Key Point About Declarant Control</h4>
+                    <p>During the development period, the Parten Ranch Reviewer (appointed by the developer) acts "solely in Declarant's interest" (Design Guidelines Section I.B). This is different from normal HOA governance where the board acts in the interest of all residents.</p>
+                </div>
+
+                <h3>Governing Documents Hierarchy</h3>
+                <p>There are three key documents that govern Parten Ranch. They form a hierarchy:</p>
+                <ol>
+                    <li><strong>Development Area Declaration</strong> (recorded in Hays County) - the master document</li>
+                    <li><strong>Design Guidelines</strong> (referenced in the Declaration) - detailed requirements</li>
+                    <li><strong>Community Manual</strong> - day-to-day operational rules</li>
+                </ol>
+                <p class="legal-reference">If these documents conflict, the Declaration controls, then the Design Guidelines, then the Manual.</p>
+
+                <h3>Three Layers of Regulation</h3>
+                <p>Your property is governed by three layers of rules:</p>
+                <div class="rule-item">
+                    <strong>Layer 1: Federal & State Law</strong> - Texas Property Code Chapters 202, 209, and other state laws. These CANNOT be overridden by HOA documents.
+                </div>
+                <div class="rule-item">
+                    <strong>Layer 2: Local Government</strong> - City of Dripping Springs and Hays County ordinances, building codes, and zoning. These often take precedence over HOA rules.
+                </div>
+                <div class="rule-item">
+                    <strong>Layer 3: HOA Documents</strong> - The Declaration, Design Guidelines, and Community Manual. These must comply with state and local laws.
+                </div>
+
+                <h3>Important: Architectural Review Protections</h3>
+                <p>Texas Property Code §209.00505 provides important protections for architectural review requests. However, during the declarant control period, these protections may be limited. Once the development period ends and the declarant relinquishes control, these protections become your right:</p>
+                <ul>
+                    <li>Written notice of denial within 30 days</li>
+                    <li>Specific citation of the governing document provision</li>
+                    <li>Right to appeal to the board</li>
+                    <li>Reasonable time to cure violations before fines</li>
+                </ul>
+
+                <h3>The Development Period and Your Options</h3>
+                <p>The longer the development period lasts, the more restrictive your architectural review process can be. Once declarant control ends:</p>
+                <ul>
+                    <li>The board must include resident members</li>
+                    <li>Standard §209.00505 protections apply fully</li>
+                    <li>Approval/denial decisions become more subject to legal scrutiny</li>
+                </ul>
+
+                <div class="warning-box">
+                    <h4>Is This Actually a Rule?</h4>
+                    <p>"The HOA has complete discretion to deny any request for any reason." - This is NOT accurate. Even during the development period, the Parten Ranch Reviewer must cite specific provisions from the governing documents. If a rule doesn't appear in the Design Guidelines or Declaration, it cannot be used to deny a request.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Pools, Spas & Hot Tubs -->
+        <div class="section" id="section-2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>2. Pools, Spas & Hot Tubs</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Pool Type Requirements (Design Guidelines Section H)</h3>
+                <p>If you plan to install a pool, it must meet these documented requirements:</p>
+
+                <div class="rule-item">
+                    <strong>In-Ground Only:</strong> All pools must be in-ground or "balanced cut and fill" (fill material used on-site). Above-ground pools are not permitted.
+                </div>
+
+                <div class="rule-item">
+                    <strong>City Permits First:</strong> You must obtain City of Dripping Springs construction permits BEFORE submitting to the HOA for architectural review. The HOA will not review applications without proof of city permits.
+                </div>
+
+                <h3>Setback Requirements</h3>
+                <ul>
+                    <li>Pool: no closer than 5 feet from any property line</li>
+                    <li>Pool deck: no closer than 5 feet from property line</li>
+                </ul>
+
+                <h3>Pool Features & Equipment</h3>
+                <div class="rule-item">
+                    <strong>Infinity Edge Pools:</strong> No more than 3 feet of exposed concrete visible (must be integral to landscape design)
+                </div>
+
+                <div class="rule-item">
+                    <strong>Water Features:</strong> Rock waterfalls and slides must not exceed 6 feet in height
+                </div>
+
+                <div class="rule-item">
+                    <strong>Equipment Screening:</strong> All pool equipment (pumps, heaters, filters) must be screened and not visible from the street or from adjacent lots
+                </div>
+
+                <div class="rule-item">
+                    <strong>Drainage:</strong> Pool drains must connect to street drainage systems. No draining onto neighboring property.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Lot Placement:</strong> Pools must be in the rear portion of the lot
+                </div>
+
+                <h3>Fencing & Water Fill Requirements</h3>
+                <ul>
+                    <li>Fencing is required and must meet all government regulations (see Fences & Walls section)</li>
+                    <li>No water is permitted in the pool until proper fencing is installed and approved by the city</li>
+                </ul>
+
+                <h3>Texas Health & Safety Code Requirements (Chapter 757)</h3>
+                <p>Texas law mandates specific pool safety requirements that the HOA cannot prohibit:</p>
+
+                <div class="law-box">
+                    <h4>Required Pool Barriers</h4>
+                    <ul>
+                        <li>Barrier (fence/wall) must be at least 48 inches tall</li>
+                        <li>No gaps allowing a 4-inch sphere to pass through</li>
+                        <li>Barrier must be at least 20 inches from pool edge</li>
+                        <li>Gates must be self-closing and self-latching</li>
+                        <li>Latch release must be at least 54 inches above ground</li>
+                        <li>Chain-link fencing is PROHIBITED for pools built after January 1, 1994</li>
+                    </ul>
+                </div>
+
+                <h3>Texas Property Code Protection</h3>
+
+                <div class="law-box">
+                    <h4>§202.022: Pool Enclosure Protection</h4>
+                    <p>The HOA <strong>CANNOT</strong> prohibit pool enclosures that comply with state safety codes. This means you have the right to install safety features required by Texas law, and the HOA cannot deny them or impose additional restrictions that conflict with safety requirements.</p>
+                </div>
+
+                <h3>City of Dripping Springs Fence Permits</h3>
+                <p>The City of Dripping Springs requires a fence permit for pool enclosures. Your fence design must meet state requirements, and the HOA cannot impose stricter safety requirements than state law allows.</p>
+
+                <div class="warning-box">
+                    <h4>Is This Actually a Rule?</h4>
+                    <p>"Your pool fence must be solid wood with no gaps." - NOT CLEARLY DOCUMENTED for pools. The Design Guidelines Section G covers general fencing and requires wrought iron/decorative metal, but §202.022 protects your right to use safety-compliant materials. Check with the City of Dripping Springs on what materials they approve for pool safety enclosures.</p>
+                </div>
+
+                <h3>Application Checklist for Pools</h3>
+                <ol>
+                    <li>Contact City of Dripping Springs Building Department for permit requirements</li>
+                    <li>Obtain all city permits before submitting to HOA</li>
+                    <li>Submit HOA architectural review request with city permits and detailed plans</li>
+                    <li>Include setback measurements and equipment screening details</li>
+                    <li>Allow 30 days for HOA review</li>
+                    <li>Obtain city approval before filling pool</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Section 3: Pergolas, Patios & Outdoor Structures -->
+        <div class="section" id="section-3">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>3. Pergolas, Patios & Outdoor Structures</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Accessory Structure Limits (Design Guidelines Section F)</h3>
+                <p>The Design Guidelines specifically define accessory structures (sheds, storage buildings) with this size limit:</p>
+
+                <div class="rule-item">
+                    <strong>Base Size Limit: 10' x 12' (120 square feet)</strong> - UNLESS the Parten Ranch Reviewer approves a larger structure in advance and in writing.
+                </div>
+
+                <p class="legal-reference">This is a critical point: the design guidelines explicitly state "unless otherwise approved in advance and in writing by the Parten Ranch Reviewer." This means larger structures CAN be approved.</p>
+
+                <h3>Material & Design Requirements</h3>
+                <ul>
+                    <li>Roof materials must match the main house</li>
+                    <li>Must have pitched roof matching the main house roof pitch</li>
+                    <li>Siding and paint colors must match the main house</li>
+                </ul>
+
+                <h3>Setback Requirements</h3>
+                <ul>
+                    <li>Minimum 5 feet from interior lot lines</li>
+                    <li>No accessory structures on lots adjacent to greenbelt or open space areas</li>
+                </ul>
+
+                <h3>Quantity Limit</h3>
+                <p>Generally, only ONE accessory structure per lot is permitted. However, the "otherwise approved" language means additional structures may be possible with written approval.</p>
+
+                <h3>What About Pergolas? The Gray Area</h3>
+
+                <div class="warning-box">
+                    <h4>Is This Actually a Rule?</h4>
+                    <p>"Pergolas have a specific size limit" - <strong>NOT FOUND IN ANY GOVERNING DOCUMENT.</strong> The only documented size limit (10'x12') applies to "accessory structures" such as sheds (Design Guidelines Section C.7). Pergolas are never specifically defined or mentioned in the Design Guidelines. The "otherwise approved in advance and in writing" clause suggests larger structures may be approvable on a case-by-case basis. If a size restriction is cited for a pergola, request the specific governing document section number.</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>Is This Actually a Rule?</h4>
+                    <p>"Pergolas must have a pitched or angled roof" - <strong>PARTIALLY DOCUMENTED BUT NOT SPECIFIC TO PERGOLAS.</strong> The Design Guidelines Section D.2 states that "the main roof pitch of the primary residence" must be minimum 6:12, and notes that "dormers, porches and other similar accessory structures attached to the primary residence shall be exempt from this requirement." Since pergolas are not specifically defined in the Design Guidelines and freestanding pergolas are not attached to the primary residence, this roof pitch requirement may not apply. If this restriction is cited, ask for the specific provision that extends roof pitch requirements to pergolas.</p>
+                </div>
+
+                <h3>Patios (Uncovered Surfaces)</h3>
+                <p>The Design Guidelines do not specify restrictions for patio areas (pavers, concrete without roofing). These are generally not considered "accessory structures." However, always submit a request if you plan to extend more than 500 square feet or if it's visible from the street.</p>
+
+                <h3>Attached vs. Detached Structures</h3>
+                <p>The guidelines treat attached structures (extending from the house) differently from detached structures. An attached pergola may have different requirements than a detached one. When submitting, clearly specify whether your structure is attached or detached.</p>
+
+                <h3>Application Strategy</h3>
+                <ol>
+                    <li>Request the written definition of "pergola" from the Parten Ranch Reviewer</li>
+                    <li>If denied, request the specific Design Guidelines section number supporting the denial</li>
+                    <li>If citing a size limit, request documentation of that limit</li>
+                    <li>Remember: "otherwise approved in advance and in writing" means you can request exception approval</li>
+                    <li>Document everything in writing via email</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Section 4: Fences & Walls -->
+        <div class="section" id="section-4">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>4. Fences & Walls</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Fencing Material Requirements (Design Guidelines Section G)</h3>
+
+                <div class="rule-item">
+                    <strong>Required Materials:</strong> All fencing must be wrought iron or decorative metal only. The metal must be black coated.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Prohibited:</strong> Wood fencing is prohibited in Parten Ranch.
+                </div>
+
+                <h3>Fencing Height</h3>
+                <ul>
+                    <li>Standard height: 6 feet</li>
+                    <li>This applies to side and rear yard fences</li>
+                </ul>
+
+                <h3>Fencing Placement Requirements</h3>
+                <div class="rule-item">
+                    <strong>Corner Lots:</strong> Side yard fences must not be closer than 8 feet to the street right-of-way
+                </div>
+
+                <div class="rule-item">
+                    <strong>Rear Placement:</strong> Side fences placed no further to the rear than the midpoint of the primary building
+                </div>
+
+                <div class="rule-item">
+                    <strong>Front Yards:</strong> Fencing of front yards is prohibited
+                </div>
+
+                <h3>Greenbelt & Open Space Restrictions</h3>
+                <p>For lots adjacent to greenbelt or open space areas:</p>
+                <ul>
+                    <li>NO GATES are permitted in fences adjacent to greenbelts</li>
+                    <li>This prevents private access to common areas</li>
+                </ul>
+
+                <h3>Solid Walls Prohibition</h3>
+                <div class="rule-item">
+                    <strong>Solid walls enclosing an entire lot/site are prohibited.</strong> However, partial walls or walls integrated with landscape design may be approvable.
+                </div>
+
+                <h3>City of Dripping Springs Fence Permits</h3>
+                <p>All fencing requires a permit from the City of Dripping Springs. The city may have additional requirements beyond the HOA rules. Check with the city first for:</p>
+                <ul>
+                    <li>Setback requirements</li>
+                    <li>Height limitations</li>
+                    <li>Material approval</li>
+                    <li>Gate regulations</li>
+                </ul>
+
+                <h3>Application Process for Fences</h3>
+                <ol>
+                    <li>Verify city requirements with Dripping Springs Building Department</li>
+                    <li>Prepare detailed fence plans with measurements and materials</li>
+                    <li>Submit to Parten Ranch Reviewer with city requirements documentation</li>
+                    <li>Specify material color (black coated metal)</li>
+                    <li>Include lot survey showing setbacks</li>
+                    <li>Allow 30 days for approval</li>
+                    <li>Obtain city permit before installation</li>
+                </ol>
+
+                <h3>Common Fence Scenarios</h3>
+                <div class="rule-item">
+                    <strong>Pool Fencing:</strong> Must meet both HOA standards (wrought iron/metal, 6 feet) AND Texas Health & Safety Code (48 inches minimum, no 4-inch sphere gaps). See Pool section for details.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Dog Containment:</strong> Fencing must use approved wrought iron/metal. The structure must meet state safety requirements (48 inches minimum) and city permit requirements.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Decorative Walls (partial):</strong> Low walls (under 3 feet) may be acceptable if designed as part of landscape architecture and use approved materials. Submit with landscape plan.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Landscaping & Yard -->
+        <div class="section" id="section-5">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>5. Landscaping & Yard</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Initial Landscape Requirements (Design Guidelines Section VII)</h3>
+                <p>When you build or significantly update landscaping, these minimum requirements apply:</p>
+
+                <div class="rule-item">
+                    <strong>Sod Coverage:</strong> Front and side yards must be fully sodded
+                </div>
+
+                <div class="rule-item">
+                    <strong>Trees:</strong> Minimum 2 hardwood trees (4 trees on corner lots)
+                </div>
+
+                <div class="rule-item">
+                    <strong>Shrubs:</strong> Minimum 10 five-gallon shrubs
+                </div>
+
+                <h3>Grass Recommendations & Maintenance</h3>
+                <p>The Design Guidelines recommend specific grasses for the Parten Ranch climate:</p>
+                <ul>
+                    <li>Buffalo grass - recommended for drought tolerance</li>
+                    <li>Zoysia - recommended</li>
+                    <li>Bermuda grass - recommended and commonly used</li>
+                    <li>St. Augustine grass - PROHIBITED in Parten Ranch</li>
+                </ul>
+
+                <p><strong>Maintenance Standard:</strong> Bermuda and Buffalo grass should be maintained at 2-2.5 inches height</p>
+
+                <h3>Mulch Requirements</h3>
+                <ul>
+                    <li>Minimum 2 inches of mulch in all shrub and planting bed areas</li>
+                    <li>Maintains moisture and reduces water needs</li>
+                </ul>
+
+                <h3>Native & Drought-Tolerant Plants</h3>
+                <p>The Design Guidelines emphasize native and drought-tolerant plants suitable for Central Texas. This is encouraged by both the HOA and Texas law.</p>
+
+                <div class="law-box">
+                    <h4>Texas Property Code §202.007: Xeriscaping Protection</h4>
+                    <p>The HOA <strong>CANNOT</strong> prohibit or restrict:</p>
+                    <ul>
+                        <li>Xeriscaping (drought-resistant landscaping)</li>
+                        <li>Native plants</li>
+                        <li>Water-saving irrigation systems</li>
+                        <li>Rain barrels for water collection</li>
+                        <li>Composting systems on your property</li>
+                    </ul>
+                    <p>The HOA also cannot fine for natural browning during water restrictions.</p>
+                </div>
+
+                <h3>Lawn Drought Protection (HB 517 - Effective 2025)</h3>
+
+                <div class="law-box">
+                    <h4>Texas Lawn Dormancy Protection</h4>
+                    <p>The HOA <strong>CANNOT</strong> fine you for brown or dormant grass during periods of:</p>
+                    <ul>
+                        <li>City or county-issued watering restrictions</li>
+                        <li>Voluntary water conservation periods</li>
+                        <li>Up to 60 days AFTER restrictions or conservation periods end</li>
+                    </ul>
+                    <p>This protects you when your lawn goes dormant during drought conditions.</p>
+                </div>
+
+                <h3>Plant & Decoration Restrictions</h3>
+                <div class="rule-item">
+                    <strong>Artificial Plants/Plastic Decorations:</strong> Prohibited in front yard (except holiday decorations during appropriate seasons)
+                </div>
+
+                <div class="rule-item">
+                    <strong>Birdbaths:</strong> Allowed in front or side yards without approval
+                </div>
+
+                <div class="rule-item">
+                    <strong>Sculptures/Fountains:</strong> Require written approval before installation
+                </div>
+
+                <div class="rule-item">
+                    <strong>Garden Swings/Benches:</strong> Allowed on front porches; front lawns or driveways require approval
+                </div>
+
+                <h3>Landscaping Change Policy</h3>
+                <p>If you plan significant changes to an already-approved landscape plan:</p>
+                <ul>
+                    <li>Submit a new landscape plan for approval</li>
+                    <li>The HOA may deny major changes that deviate from the original approved design</li>
+                    <li>Minor maintenance and seasonal changes don't require reapproval</li>
+                </ul>
+
+                <h3>Application for Landscaping Changes</h3>
+                <ol>
+                    <li>If minor changes (different shrubs, add trees): Submit written request</li>
+                    <li>If major changes (full replant, different layout): Submit new landscape plan</li>
+                    <li>Include plant varieties, placement, and hardscape elements</li>
+                    <li>Verify your plan uses approved grass types and native/drought-tolerant plants</li>
+                    <li>Include any fountains, sculptures, or structures for approval</li>
+                </ol>
+
+                <h3>Common Landscaping Scenarios</h3>
+                <div class="rule-item">
+                    <strong>Removing Lawn for Decorative Rock:</strong> Not explicitly prohibited, but must maintain overall lot appearance. Consider xeriscaping with drought-tolerant plants as alternative.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Adding a Rain Barrel:</strong> This is protected by §202.007. The HOA cannot prohibit it. However, screen it from street view if possible.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Vegetable Garden:</strong> Not specifically addressed in guidelines. Small gardens are generally acceptable; large operations may require approval.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Solar Panels & Energy -->
+        <div class="section" id="section-6">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>6. Solar Panels & Energy</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Texas Law Protection for Solar Panels</h3>
+
+                <div class="law-box">
+                    <h4>Texas Property Code §202.010: Solar Panel Protection</h4>
+                    <p>The HOA <strong>CANNOT</strong> prohibit or unduly restrict solar panel installation on your property. Specifically:</p>
+                    <ul>
+                        <li>HOA cannot deny solar panel installation without a reasonable basis documented in writing</li>
+                        <li>HOA cannot prohibit solar panels that don't extend above the roofline</li>
+                        <li>Any restrictions that prevent installation or significantly increase cost are VOID</li>
+                        <li>HOA cannot require architectural review or approval that is unreasonably withheld</li>
+                    </ul>
+                </div>
+
+                <h3>What This Means for Parten Ranch Residents</h3>
+                <p>Even during the declarant control period, the HOA cannot:</p>
+                <ul>
+                    <li>Completely ban solar panels</li>
+                    <li>Require impossible design standards for panels</li>
+                    <li>Charge excessive fees for review</li>
+                    <li>Require panels be hidden from view if roofline-mounted</li>
+                </ul>
+
+                <h3>Reasonable Design Standards</h3>
+                <p>The HOA can request reasonable architectural design considerations:</p>
+                <ul>
+                    <li>Panels should be integrated into roof design if possible</li>
+                    <li>Visible panels on south or west-facing roofs are generally acceptable</li>
+                    <li>Ground-mounted systems may face more scrutiny (setback requirements, visibility)</li>
+                </ul>
+
+                <h3>Energy-Efficient Roofing Materials</h3>
+
+                <div class="law-box">
+                    <h4>Texas Property Code §202.011: Energy-Efficient Shingles</h4>
+                    <p>The HOA <strong>CANNOT</strong> prohibit or restrict:</p>
+                    <ul>
+                        <li>Wind-resistant roofing materials</li>
+                        <li>Hail-resistant roofing materials</li>
+                        <li>Energy-efficient shingles or roofing systems</li>
+                    </ul>
+                    <p>This protects your right to upgrade to modern, energy-efficient roofing that saves money and protects against weather.</p>
+                </div>
+
+                <h3>Design Guidelines Roof Requirements</h3>
+                <p>The Design Guidelines Section D specifies roofing requirements, but these cannot override state law protections:</p>
+                <ul>
+                    <li>Minimum 30-year asphalt composition shingles with "Weatheredwood" color default</li>
+                    <li>This doesn't prohibit upgraded materials with similar appearance</li>
+                    <li>Energy-efficient shingles in similar color tones should be approvable</li>
+                </ul>
+
+                <div class="warning-box">
+                    <h4>Is This Actually a Rule?</h4>
+                    <p>"We prohibit solar panels in Parten Ranch because they're not aesthetically appropriate." - This is likely not enforceable under §202.010. Request the specific written provision from the Design Guidelines or Declaration. If none exists, the prohibition is likely illegal.
+                </p>
+                </div>
+
+                <h3>Application Process for Solar Panels</h3>
+                <ol>
+                    <li>Prepare design drawings showing panel placement and appearance from street view</li>
+                    <li>If roofline-mounted and not visible, note this in your request</li>
+                    <li>Include solar contractor information and system specs</li>
+                    <li>Submit to Parten Ranch Reviewer with note referencing §202.010</li>
+                    <li>If denied, request written explanation citing specific Design Guidelines provision</li>
+                    <li>If denial seems unreasonable, consult the Texas State Law Library HOA guide or an attorney</li>
+                </ol>
+
+                <h3>Application Process for Energy-Efficient Roofing</h3>
+                <ol>
+                    <li>When replacing your roof, specify energy-efficient materials</li>
+                    <li>Include color samples showing similarity to "Weatheredwood" standard</li>
+                    <li>If denied, request written provision citing specific restriction</li>
+                    <li>Note that §202.011 protects your right to use wind/hail-resistant materials</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Section 7: Roofs & Exterior -->
+        <div class="section" id="section-7">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>7. Roofs & Exterior</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Masonry & Exterior Material Requirements (Design Guidelines Section D)</h3>
+
+                <div class="rule-item">
+                    <strong>Masonry Requirement:</strong> 85% masonry minimum on all visible exterior surfaces
+                </div>
+
+                <div class="rule-item">
+                    <strong>Street-Facing Requirement:</strong> 100% masonry on all street-facing elevations (no stucco or other materials on front facade)
+                </div>
+
+                <div class="rule-item">
+                    <strong>Stucco Limitation:</strong> No more than 50% stucco without specific approval from the Parten Ranch Reviewer
+                </div>
+
+                <h3>Masonry Colors</h3>
+                <ul>
+                    <li>No gray masonry tones</li>
+                    <li>Warm earth tones required</li>
+                    <li>Aligns with Hill Country aesthetic</li>
+                </ul>
+
+                <h3>Roof Specifications (Design Guidelines Section D)</h3>
+
+                <div class="rule-item">
+                    <strong>Roof Pitch:</strong> Minimum 6:12 (6 inches vertical for every 12 inches horizontal) for primary residence
+                </div>
+
+                <p><strong>Exception:</strong> Dormers, porches, and other similar accessory structures attached to the primary residence are exempt from the 6:12 pitch requirement</p>
+
+                <div class="rule-item">
+                    <strong>Roofing Material:</strong> Minimum 30-year asphalt composition shingles
+                </div>
+
+                <div class="rule-item">
+                    <strong>Color:</strong> "Weatheredwood" is the default color standard
+                </div>
+
+                <h3>Prohibited Roof Types</h3>
+                <p>The Design Guidelines specifically prohibit these roof styles:</p>
+                <ul>
+                    <li>Mansard roofs</li>
+                    <li>Gambrel roofs</li>
+                    <li>Shed roofs (on primary residences)</li>
+                    <li>Flat roofs</li>
+                </ul>
+
+                <h3>Foundation Requirements</h3>
+
+                <div class="rule-item">
+                    <strong>Foundation Exposure:</strong> Maximum 24 inches of foundation wall visible above grade (ground level)
+                </div>
+
+                <h3>Color Restrictions</h3>
+                <ul>
+                    <li>No vivid or bright colors</li>
+                    <li>Earth tones and muted colors only</li>
+                    <li>Consistent with Hill Country community aesthetic</li>
+                </ul>
+
+                <h3>Energy-Efficient Upgrades (Protected by State Law)</h3>
+
+                <div class="law-box">
+                    <h4>Energy-Efficient Shingles (§202.011)</h4>
+                    <p>When replacing your roof, you can use energy-efficient materials. The HOA cannot prohibit:</p>
+                    <ul>
+                        <li>Wind-resistant shingles</li>
+                        <li>Hail-resistant shingles</li>
+                        <li>Cool roof technology (reflective coatings)</li>
+                    </ul>
+                    <p>These must be in an approved color, but the HOA cannot ban them for being energy-efficient.</p>
+                </div>
+
+                <h3>Application Process for Exterior Changes</h3>
+                <ol>
+                    <li>For roof replacement: Submit roofing material samples in "Weatheredwood" color range or similar</li>
+                    <li>For stucco upgrades: Submit plans showing placement and color samples</li>
+                    <li>For large masonry changes: Submit elevation renderings</li>
+                    <li>For foundation work: Include before/after plans</li>
+                    <li>Reference relevant Design Guidelines section in your request</li>
+                </ol>
+
+                <h3>Common Exterior Scenarios</h3>
+                <div class="rule-item">
+                    <strong>Replacing Roof with Energy-Efficient Shingles:</strong> Approved if color is similar to Weatheredwood. §202.011 protects your right to use these materials.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Upgrading Foundation Exposure (Adding Height):</strong> Allowed up to 24 inches. Going beyond this requires approval. Often involves regrading your lot, which requires city approval.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Adding Dormers:</strong> Dormers are exempt from the 6:12 pitch requirement. Design should be compatible with primary roof pitch.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8: Garages & Driveways -->
+        <div class="section" id="section-8">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>8. Garages & Driveways</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Garage Requirements (Design Guidelines Section I)</h3>
+
+                <div class="rule-item">
+                    <strong>Minimum Coverage:</strong> Enclosed garage required for minimum 2 cars
+                </div>
+
+                <div class="rule-item">
+                    <strong>Carports Prohibited:</strong> No open or covered carports; all vehicle storage must be fully enclosed
+                </div>
+
+                <h3>Garage Door Specifications</h3>
+                <ul>
+                    <li>Garage doors must be electric-operated (manual doors not permitted)</li>
+                    <li>Material: Metal or wood doors acceptable</li>
+                    <li>Design should be compatible with house architecture</li>
+                </ul>
+
+                <h3>Driveway Requirements (Design Guidelines Section J)</h3>
+
+                <div class="rule-item">
+                    <strong>Surface Material:</strong> Concrete required
+                </div>
+
+                <div class="rule-item">
+                    <strong>Prohibited Materials:</strong> Aggregate driveways are not permitted
+                </div>
+
+                <div class="rule-item">
+                    <strong>Staining:</strong> No stained concrete on driveways or sidewalks
+                </div>
+
+                <h3>Driveway Design</h3>
+                <p>While the Design Guidelines don't extensively regulate driveway design, they should:</p>
+                <ul>
+                    <li>Be compatible with overall lot grading and drainage</li>
+                    <li>Provide adequate drainage (no pooling)</li>
+                    <li>Be maintained in good condition</li>
+                </ul>
+
+                <h3>No Open Automobile Storage</h3>
+
+                <div class="rule-item">
+                    <strong>Prohibition:</strong> No open automobile storage is permitted. All vehicles must be garaged or on the driveway. No vehicles parked on the lawn.
+                </div>
+
+                <h3>Application Process</h3>
+                <ol>
+                    <li>For garage door replacement: Submit door sample and color information</li>
+                    <li>For new driveway: Submit concrete specifications and design</li>
+                    <li>For driveway expansion/extension: Include survey showing placement</li>
+                    <li>Verify with City of Dripping Springs for any driveway access requirements</li>
+                </ol>
+
+                <h3>Common Garage Scenarios</h3>
+                <div class="rule-item">
+                    <strong>RV/Boat Parking:</strong> Cannot be stored on your lot unless garaged. The prohibition on "open automobile storage" extends to RVs and boats.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Garage Conversion:</strong> You cannot convert an enclosed garage to living space (this would eliminate the required 2-car garage).
+                </div>
+
+                <div class="rule-item">
+                    <strong>Garage Door Openers:</strong> Electric openers are required. Manual garage doors are not permitted.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9: Basketball Goals, Playscapes & Sports Equipment -->
+        <div class="section" id="section-9">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>9. Basketball Goals, Playscapes & Sports Equipment</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Basketball Goals (Design Guidelines Sections I & J)</h3>
+
+                <div class="rule-item">
+                    <strong>Approval Required:</strong> Written approval required before any basketball goal installation
+                </div>
+
+                <div class="rule-item">
+                    <strong>Permanent Goals Only:</strong> Metal pole, permanently mounted goals are permitted
+                </div>
+
+                <div class="rule-item">
+                    <strong>Portable Goals Prohibited:</strong> Portable/temporary basketball goals are NOT permitted
+                </div>
+
+                <h3>Basketball Goal Placement Requirements</h3>
+                <ul>
+                    <li>Must be on the side of the driveway (not in center)</li>
+                    <li>Minimum 25 feet back from curb/street</li>
+                    <li>Must be in rear yard area, not visible from front</li>
+                </ul>
+
+                <h3>Trampolines (Design Guidelines Section J)</h3>
+
+                <div class="rule-item">
+                    <strong>Approval Required:</strong> Written approval required before installation
+                </div>
+
+                <h3>Trampoline Requirements</h3>
+                <ul>
+                    <li>Minimum 5 feet from any property line</li>
+                    <li>No direct or indirect lighting on trampoline</li>
+                    <li>Must be in rear yard, not visible from front</li>
+                </ul>
+
+                <h3>Sport Courts & Tennis Courts</h3>
+
+                <div class="rule-item">
+                    <strong>Sport Courts Prohibited:</strong> Sport courts (including basketball courts, tennis courts, and similar structures) are not permitted
+                </div>
+
+                <h3>Playscapes & Play Equipment (Design Guidelines Section J)</h3>
+
+                <div class="rule-item">
+                    <strong>Approval Required:</strong> Written approval required before installation
+                </div>
+
+                <h3>Playscape Design Requirements</h3>
+                <ul>
+                    <li>Must use earth tone colors (no bright primary colors like red, blue, yellow)</li>
+                    <li>Must be screened from public view (not visible from street)</li>
+                    <li>Must be in rear yard area</li>
+                </ul>
+
+                <h3>Application Process for Sports Equipment</h3>
+                <ol>
+                    <li>Submit written request for approval</li>
+                    <li>Include detailed placement plan with measurements from property lines and street</li>
+                    <li>For basketball goals: Include pole specifications and mounting details</li>
+                    <li>For trampolines: Include size and safety specifications</li>
+                    <li>For playscapes: Include color renderings showing earth tone colors</li>
+                    <li>Allow 30 days for approval</li>
+                </ol>
+
+                <h3>Common Sports Equipment Scenarios</h3>
+                <div class="rule-item">
+                    <strong>Portable Basketball Hoops:</strong> NOT PERMITTED. Must be permanently mounted. If you have a portable hoop, the HOA can require its removal.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Swing Sets:</strong> Generally treated as playscapes. Earth tone colors required. Must be screened from street view. Typically acceptable in rear yards.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Sandbox:</strong> Allowed as part of playscape if screened from view and using earth tone containment.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Sports Lighting:</strong> Lights directing onto sports equipment (basketball hoop lights) are prohibited. Avoid floodlighting that shines on courts or play areas.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 10: Flags, Signs & Displays -->
+        <div class="section" id="section-10">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>10. Flags, Signs & Displays</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Flag Protection Under Texas Law</h3>
+
+                <div class="law-box">
+                    <h4>Texas Property Code §202.012: Flag Display Protection</h4>
+                    <p>The HOA <strong>CANNOT</strong> prohibit or unreasonably restrict display of:</p>
+                    <ul>
+                        <li>United States flag</li>
+                        <li>Texas state flag</li>
+                        <li>United States Armed Forces flags</li>
+                    </ul>
+                    <p>The HOA MAY impose reasonable restrictions on size, placement, and manner of display, but cannot ban these flags altogether.</p>
+                </div>
+
+                <h3>Religious Display Protection</h3>
+
+                <div class="law-box">
+                    <h4>Texas Property Code §202.018: Religious Display Protection</h4>
+                    <p>The HOA <strong>CANNOT</strong> prohibit religious displays on your property. This includes:</p>
+                    <ul>
+                        <li>Religious symbols</li>
+                        <li>Holiday religious decorations (nativity scenes, menorahs, etc.)</li>
+                        <li>Religious yard signs or expressions</li>
+                    </ul>
+                    <p>The HOA cannot regulate these based on religious content.</p>
+                </div>
+
+                <h3>Lemonade Stand Protection</h3>
+
+                <div class="law-box">
+                    <h4>Texas Property Code §202.020: Children's Lemonade Stands</h4>
+                    <p>The HOA <strong>CANNOT</strong> prohibit children from operating lemonade stands or similar temporary food/beverage sales. This is a protected temporary use on your property.</p>
+                </div>
+
+                <h3>Real Estate For Sale/Lease Signs (Development Area Declaration Section 2.10)</h3>
+
+                <div class="rule-item">
+                    <strong>For Sale Signs:</strong> Permitted and must comply with the Development Area Declaration Section 2.10
+                </div>
+
+                <div class="rule-item">
+                    <strong>For Rent Signs:</strong> Prohibited in Parten Ranch
+                </div>
+
+                <h3>Other Signs & Displays</h3>
+
+                <div class="rule-item">
+                    <strong>Approval Required:</strong> All signs other than flags, religious displays, for-sale signs, and lemonade stands require written approval from the Parten Ranch Reviewer
+                </div>
+
+                <h3>Examples of Signs Requiring Approval</h3>
+                <ul>
+                    <li>Business signs on property</li>
+                    <li>Political signs (though constitutionality of banning these is questionable)</li>
+                    <li>Custom decorative signs</li>
+                    <li>Address signs (if ornate or large)</li>
+                </ul>
+
+                <h3>Application Process for Signs</h3>
+                <ol>
+                    <li>If it's a protected flag or religious display: No approval needed, but maintain reasonable appearance</li>
+                    <li>If it's a for-sale sign: Comply with Development Area Declaration requirements</li>
+                    <li>If it's another type of sign: Submit request with design specifications and placement information</li>
+                    <li>Document approval in writing via email</li>
+                </ol>
+
+                <h3>Common Sign Scenarios</h3>
+                <div class="rule-item">
+                    <strong>American Flag Display:</strong> Protected. You can display the US flag without HOA approval. The HOA can request reasonable flagpole design standards.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Holiday Decorations:</strong> Temporary holiday decorations are typically allowed. Permanent holiday displays (year-round nativity scene) may require approval.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Business Signs (Home Business):</strong> Requires approval. The HOA can impose restrictions to maintain residential character.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Address Numbers:</strong> Decorative address signs may require approval if large or unusual. Standard address markers are typically acceptable.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 11: Security & Generators -->
+        <div class="section" id="section-11">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>11. Security & Generators</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Security Cameras & Motion Sensors Protection</h3>
+
+                <div class="law-box">
+                    <h4>Texas Property Code §202.023: Security Device Protection</h4>
+                    <p>The HOA <strong>CANNOT</strong> prohibit or unreasonably restrict:</p>
+                    <ul>
+                        <li>Security cameras on your property</li>
+                        <li>Motion sensors and detection devices</li>
+                        <li>Perimeter fencing for security purposes</li>
+                    </ul>
+                    <p>The HOA MAY impose reasonable restrictions on appearance and placement, but cannot ban security devices altogether.</p>
+                </div>
+
+                <h3>Security Camera Installation</h3>
+                <p>You can install security cameras on your property. Reasonable restrictions might include:</p>
+                <ul>
+                    <li>Cameras should not point directly onto neighboring properties (privacy concerns)</li>
+                    <li>Camera placement should be minimally visible from street if possible</li>
+                    <li>Associated wiring should be concealed when feasible</li>
+                </ul>
+
+                <h3>Standby Electric Generators Protection</h3>
+
+                <div class="law-box">
+                    <h4>Texas Property Code §202.019: Standby Generator Protection</h4>
+                    <p>The HOA <strong>CANNOT</strong> prohibit standby electric generators on your property. The HOA MAY:</p>
+                    <ul>
+                        <li>Regulate the placement and screening of generators</li>
+                        <li>Require generators be placed in rear yard or screened from view</li>
+                        <li>Regulate noise levels</li>
+                    </ul>
+                    <p>However, the HOA cannot completely ban generators or impose unreasonable restrictions that prevent their installation.</p>
+                </div>
+
+                <h3>Generator Screening & Placement</h3>
+                <p>Reasonable requirements for generators might include:</p>
+                <ul>
+                    <li>Placement in rear yard when possible</li>
+                    <li>Screening with vegetation or fencing (similar to pool equipment requirements)</li>
+                    <li>Distance from property lines (setback requirements)</li>
+                    <li>Maintenance of landscaping around generator to reduce visibility</li>
+                </ul>
+
+                <h3>Application Process for Security Devices</h3>
+                <ol>
+                    <li>For security cameras: Install cameras. If HOA objects, request the specific Design Guidelines provision supporting their objection. Most camera installations are §202.023 protected.</li>
+                    <li>For generators: Submit request showing placement plan. Propose screening if rear yard placement isn't possible. Generator installation is §202.019 protected.</li>
+                    <li>If denied, cite the applicable Texas Property Code section</li>
+                </ol>
+
+                <h3>Firearm Storage</h3>
+
+                <div class="law-box">
+                    <h4>Texas Property Code §202.021: Firearm Storage</h4>
+                    <p>The HOA <strong>CANNOT</strong> prohibit or regulate the storage of firearms or ammunition in your home. This is protected private property use. The HOA has no authority over this.</p>
+                </div>
+
+                <h3>Safe Room/Panic Room</h3>
+                <p>If you plan to install a safe room or panic room in your home:</p>
+                <ul>
+                    <li>Interior modifications generally don't require HOA approval</li>
+                    <li>If modifications affect exterior (additional doors, windows), submit plans for approval</li>
+                    <li>Must comply with building codes and city permits</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 12: Vehicles, Parking & Storage -->
+        <div class="section" id="section-12">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>12. Vehicles, Parking & Storage</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Residential Use Only (Development Area Declaration Section 2.7)</h3>
+
+                <div class="rule-item">
+                    <strong>Primary Purpose:</strong> Each property in Parten Ranch is restricted to residential use only
+                </div>
+
+                <div class="rule-item">
+                    <strong>Vehicle Restriction:</strong> Only residential-use vehicles permitted; no commercial vehicles visible
+                </div>
+
+                <h3>Visible Commercial Vehicle Restriction</h3>
+                <p>What this means:</p>
+                <ul>
+                    <li>A contractor's truck with logos/signage parked in your driveway during work is temporarily acceptable</li>
+                    <li>A permanent business vehicle stored on your lot (delivery van, work truck) is not permitted</li>
+                    <li>Home-based businesses cannot have client vehicles regularly parked on the property</li>
+                </ul>
+
+                <h3>Storage Container & Trash Management (Development Area Declaration Section 2.8)</h3>
+
+                <div class="rule-item">
+                    <strong>Trash Container Storage:</strong> Trash containers must be stored out of view except on collection day
+                </div>
+
+                <div class="rule-item">
+                    <strong>Outside Storage Restriction:</strong> No outside storage visible from the street
+                </div>
+
+                <h3>Temporary Storage Pods</h3>
+                <p>If you need a temporary storage container (e.g., during renovation):</p>
+                <ul>
+                    <li>Maximum 7 days is the typical allowance</li>
+                    <li>Must be on driveway, not street</li>
+                    <li>Written approval required before delivery</li>
+                </ul>
+
+                <h3>RV, Boat & Specialty Vehicle Parking</h3>
+
+                <div class="rule-item">
+                    <strong>No Open Storage:</strong> RVs, boats, trailers, and specialty vehicles cannot be parked on your lot in open view. Must be garaged or stored off-site.
+                </div>
+
+                <p>This includes:</p>
+                <ul>
+                    <li>Motor homes</li>
+                    <li>Travel trailers</li>
+                    <li>Fishing boats</li>
+                    <li>Jet skis</li>
+                    <li>Motorcycles (in open, not garaged)</li>
+                    <li>Utility trailers</li>
+                </ul>
+
+                <h3>Driveway Parking Standards</h3>
+                <p>While the Design Guidelines don't extensively regulate driveway parking, the principle is that:</p>
+                <ul>
+                    <li>Vehicles belong in the garage or on driveway</li>
+                    <li>Not on the lawn or side yard</li>
+                    <li>Not more than normal household vehicles at any time</li>
+                </ul>
+
+                <h3>Guest Parking</h3>
+                <p>Temporary guest parking is acceptable on your driveway or street in front of your home. Permanent parking of relatives' or friends' vehicles is not permitted.</p>
+
+                <h3>Home Occupation & Vehicle Restrictions</h3>
+                <p>If you operate a home business:</p>
+                <ul>
+                    <li>No client/customer vehicles regularly parking on your property</li>
+                    <li>No business signage indicating home business from street</li>
+                    <li>No commercial vehicle storage</li>
+                </ul>
+
+                <h3>Application Process</h3>
+                <ol>
+                    <li>For temporary storage pod: Submit request 2 weeks in advance with dates and purpose</li>
+                    <li>For permanent structure to house vehicle: Treat as accessory structure (see that section)</li>
+                    <li>For temporary contractor vehicles: Document the scope and timeline of work</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Section 13: Pets & Animals -->
+        <div class="section" id="section-13">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>13. Pets & Animals</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Household Pets (Development Area Declaration Section 2.8)</h3>
+
+                <div class="rule-item">
+                    <strong>Policy:</strong> Household pets only are permitted. No farming, breeding operations, or commercial animal uses.
+                </div>
+
+                <h3>Local Compliance Required</h3>
+                <p>All pets must comply with City of Dripping Springs and Hays County animal ordinances, which include:</p>
+                <ul>
+                    <li>Dogs must be registered/licensed with the city</li>
+                    <li>Leash laws: dogs must be controlled at all times</li>
+                    <li>Noise ordinances: dogs cannot create excessive noise</li>
+                    <li>Maximum number of pets allowed by city ordinance</li>
+                </ul>
+
+                <h3>Pet Confinement</h3>
+                <p>To comply with leash laws and HOA standards:</p>
+                <ul>
+                    <li>Dogs should not roam free on the property</li>
+                    <li>Pet fencing (wrought iron/metal) can be installed to confine pets (see Fences section)</li>
+                    <li>Pets should not be visible from street in situations creating nuisance</li>
+                </ul>
+
+                <h3>Noise & Nuisance Standard</h3>
+                <p>The HOA can enforce against pets that create nuisance conditions:</p>
+                <ul>
+                    <li>Dogs barking excessively</li>
+                    <li>Pets running loose</li>
+                    <li>Pets damaging neighbor properties</li>
+                </ul>
+
+                <h3>Exotic Animals & Livestock</h3>
+                <p>The Design Guidelines do not specifically address exotic animals or livestock, but the "household pets only" language and City of Dripping Springs ordinances likely prohibit:</p>
+                <ul>
+                    <li>Chickens/roosters (check city ordinance)</li>
+                    <li>Goats or sheep</li>
+                    <li>Exotic birds or reptiles (depending on city rules)</li>
+                </ul>
+
+                <h3>Service Animals</h3>
+                <p>The HOA may not restrict service animals (guide dogs, mobility assistance dogs, etc.). These are protected under the Americans with Disabilities Act (ADA) and cannot be denied.</p>
+
+                <h3>Contact Information</h3>
+                <p>For animal-related ordinances in your area:</p>
+                <ul>
+                    <li>City of Dripping Springs: cityofdrippingsprings.com</li>
+                    <li>Hays County Animal Control: 512-393-2175</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 14: Construction Rules -->
+        <div class="section" id="section-14">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>14. Construction Rules</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Construction Hours (Design Guidelines Section VIII)</h3>
+
+                <div class="rule-item">
+                    <strong>Weekday Hours:</strong> Monday - Friday, 7:00 AM to 7:00 PM only
+                </div>
+
+                <div class="rule-item">
+                    <strong>Weekend Hours:</strong> Saturday - Sunday, 9:00 AM to 6:00 PM only
+                </div>
+
+                <div class="rule-item">
+                    <strong>No Construction on Major Holidays</strong>
+                </div>
+
+                <h3>Site Maintenance During Construction</h3>
+                <ul>
+                    <li>Must keep work site clean at end of each work day</li>
+                    <li>Debris must be contained within lot boundaries</li>
+                    <li>Street must be kept clear of materials and equipment</li>
+                    <li>Dust control measures required (water/dust suppression)</li>
+                </ul>
+
+                <h3>Temporary Storage & Dumpsters</h3>
+
+                <div class="rule-item">
+                    <strong>Storage Pods/Dumpsters:</strong> Maximum 7 days on-site
+                </div>
+
+                <div class="rule-item">
+                    <strong>Placement:</strong> Must be on driveway only, not on street or grass
+                </div>
+
+                <div class="rule-item">
+                    <strong>Approval Required:</strong> Must obtain written approval before delivering container
+                </div>
+
+                <h3>City Building Permits</h3>
+                <p>All construction work requires City of Dripping Springs building permits. The HOA architectural review approval is separate from city permits. You need both:</p>
+                <ul>
+                    <li>HOA Design Guidelines approval</li>
+                    <li>City building permit</li>
+                    <li>City inspections during construction</li>
+                </ul>
+
+                <h3>Construction Completion</h3>
+                <p>Upon completion of construction:</p>
+                <ul>
+                    <li>Site must be fully cleaned and restored</li>
+                    <li>All temporary facilities removed</li>
+                    <li>Landscaping restored or installed per approval</li>
+                    <li>City final inspection completed</li>
+                </ul>
+
+                <h3>Application for Construction</h3>
+                <ol>
+                    <li>Submit architectural review request with design plans and specifications</li>
+                    <li>Obtain HOA approval in writing</li>
+                    <li>Apply for City of Dripping Springs building permit</li>
+                    <li>Before construction begins, submit temporary storage pod request if needed</li>
+                    <li>Comply with construction hours (7am-7pm M-F, 9am-6pm Sat-Sun)</li>
+                    <li>Keep site clean daily</li>
+                    <li>Upon completion, submit notification to HOA</li>
+                    <li>Obtain city final inspection</li>
+                </ol>
+
+                <h3>Construction Noise & Disruption</h3>
+                <p>While the Design Guidelines focus on hours, you should be aware:</p>
+                <ul>
+                    <li>Neighbors may complain about noise (legitimate during construction hours)</li>
+                    <li>Excessive dust or debris may violate site maintenance rules</li>
+                    <li>Extended construction timelines may trigger HOA concern</li>
+                    <li>Maintain communication with neighbors about construction plans</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 15: Your Rights When the HOA Takes Action -->
+        <div class="section" id="section-15">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>15. Your Rights When the HOA Takes Action</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>The Fine Process (Texas Property Code Chapter 209)</h3>
+
+                <p>If the HOA believes you've violated the rules, here's the process they must follow:</p>
+
+                <h3>Step 1: Violation Notice</h3>
+                <p>The HOA must send you a written violation notice by certified mail. This notice MUST include:</p>
+                <ul>
+                    <li>Description of the alleged violation</li>
+                    <li>Specific cite to the governing document provision you allegedly violated</li>
+                    <li>The amount of the proposed fine</li>
+                    <li>Notice of your right to request a hearing</li>
+                </ul>
+
+                <div class="warning-box">
+                    <h4>Is This Actually a Rule?</h4>
+                    <p>"We're fining you for violating the HOA rules." Without citing the specific rule, this notice is defective. Demand they cite the exact Design Guidelines section or Declaration provision.</p>
+                </div>
+
+                <h3>Step 2: Your Right to Cure</h3>
+
+                <div class="law-box">
+                    <h4>First Violation - Reasonable Time to Cure</h4>
+                    <p>For a first violation of any rule, the HOA must give you reasonable time to correct the violation BEFORE imposing a fine. "Reasonable time" is typically 30 days, but depends on the nature of the violation.</p>
+                </div>
+
+                <p>Examples:</p>
+                <ul>
+                    <li>Basketball hoop violation: 30 days to remove</li>
+                    <li>Overgrown landscaping: 30-60 days to remedy</li>
+                    <li>Paint color change: 60+ days depending on weather</li>
+                </ul>
+
+                <h3>Step 3: Right to a Hearing</h3>
+
+                <div class="law-box">
+                    <h4>Hearing Rights (§209.00505)</h4>
+                    <p>You have the right to request a hearing before a disinterested committee. The process:</p>
+                    <ul>
+                        <li>Request must be made within 30 days of receiving the violation notice</li>
+                        <li>Hearing must be held before the fine is imposed</li>
+                        <li>Hearing must be before committee members who are disinterested (not on the board, not related to complainant)</li>
+                        <li>You can present your side and evidence</li>
+                        <li>You can challenge whether the violation actually exists</li>
+                        <li>You can challenge whether the rule is in the governing documents</li>
+                    </ul>
+                </div>
+
+                <h3>Step 4: Fine Amount</h3>
+                <p>The violation notice must state the fine amount. Typical fines are:</p>
+                <ul>
+                    <li>First violation: $100-$300</li>
+                    <li>Subsequent violations: $300-$500+</li>
+                </ul>
+
+                <p>Check the Community Manual or ask Kith Management what the fine schedule is.</p>
+
+                <h3>Step 5: After a Fine</h3>
+                <p>If a fine is imposed and you don't pay:</p>
+                <ul>
+                    <li>The HOA can place a lien on your property</li>
+                    <li>They can pursue collection actions</li>
+                    <li>In extreme cases, they can foreclose (sell your home)</li>
+                </ul>
+
+                <div class="law-box">
+                    <h4>Foreclosure Limitation (§209.006)</h4>
+                    <p>The HOA <strong>CANNOT</strong> foreclose on your home based solely on unpaid fines. However, they can foreclose if you owe more than a threshold (approximately $4,500) in unpaid assessments, which can include fines in some cases. Always try to resolve disputes through the hearing process.</p>
+                </div>
+
+                <h3>Assessment Payment Plans (§209.008)</h3>
+
+                <div class="law-box">
+                    <h4>Right to Payment Plan</h4>
+                    <p>If you owe assessments or fines, the HOA MUST offer you a payment plan. The plan must:</p>
+                    <ul>
+                        <li>Be in writing</li>
+                        <li>Be offered even without your request (HOA must offer)</li>
+                        <li>Last minimum 3 months</li>
+                        <li>Allow you to pay the debt over time without losing your home</li>
+                    </ul>
+                </div>
+
+                <h3>Record Access Rights (§209.0055)</h3>
+
+                <div class="law-box">
+                    <h4>Your Right to See HOA Documents</h4>
+                    <p>The HOA must provide you access to:</p>
+                    <ul>
+                        <li>The Declaration and Design Guidelines</li>
+                        <li>Board meeting minutes</li>
+                        <li>Financial records</li>
+                        <li>Your violation and fine history</li>
+                    </ul>
+                    <p>Process: Make a written request. HOA responds within 10 business days. You get access within 15 more business days.</p>
+                </div>
+
+                <h3>Board Meeting Attendance (§209.0053)</h3>
+
+                <div class="law-box">
+                    <h4>Open Meeting Rights</h4>
+                    <p>All HOA board meetings must be:</p>
+                    <ul>
+                        <li>Open to all members (no closed-door sessions)</li>
+                        <li>72-hour written notice required before meetings</li>
+                        <li>You can attend and speak (subject to reasonable time limits)</li>
+                    </ul>
+                </div>
+
+                <h3>Challenging an Unjust Fine</h3>
+
+                <p>If you believe a fine is unjust, here's your action plan:</p>
+
+                <ol>
+                    <li><strong>Document Everything:</strong> Take photos/videos of your property showing you're in compliance</li>
+                    <li><strong>Request Hearing:</strong> Within 30 days of violation notice, request a hearing</li>
+                    <li><strong>Prepare Your Case:</strong> Gather evidence showing either:
+                        <ul>
+                            <li>You're not violating the rule, OR</li>
+                            <li>The rule doesn't exist in the governing documents, OR</li>
+                            <li>The rule conflicts with state law</li>
+                        </ul>
+                    </li>
+                    <li><strong>Present Evidence at Hearing:</strong> Show photos, cite Design Guidelines sections, reference state law protections</li>
+                    <li><strong>Appeal Decision:</strong> If hearing committee sides with HOA, you can appeal to the full board or pursue legal action</li>
+                </ol>
+
+                <h3>Attorney Fees & Legal Remedies</h3>
+
+                <p>If the HOA sues to enforce a fine or you sue the HOA:</p>
+                <ul>
+                    <li>If the HOA prevails and has a clause in the Declaration, they may recover attorney fees</li>
+                    <li>If you prevail, you may recover attorney fees and court costs</li>
+                    <li>Consider consultation with a real estate attorney for disputes over significant amounts</li>
+                </ul>
+
+                <h3>Important Texas Law Protections to Assert</h3>
+                <p>When challenging a fine, you can assert these defenses:</p>
+                <ul>
+                    <li>"This rule is not in the Design Guidelines or Declaration" (§209.00505)</li>
+                    <li>"This violates Texas Property Code §202" (solar panels, flags, generators, etc.)</li>
+                    <li>"The HOA failed to give me adequate notice" (§209.00505)</li>
+                    <li>"This rule is unreasonable under state law" (§209.006)</li>
+                    <li>"I was not given reasonable time to cure the first violation" (§209.007)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 16: How to Submit an Architectural Request -->
+        <div class="section" id="section-16">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>16. How to Submit an Architectural Request (Best Practices)</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Before You Submit</h3>
+
+                <div class="rule-item">
+                    <strong>Get City Permits First:</strong> For pools and certain other structures, the Design Guidelines require city permits BEFORE HOA review. This includes:
+                    <ul>
+                        <li>Pools (must have city construction permit)</li>
+                        <li>Fencing (requires city fence permit)</li>
+                        <li>Any addition or major renovation (requires city building permit)</li>
+                    </ul>
+                </div>
+
+                <h3>What to Include in Your Request</h3>
+
+                <ol>
+                    <li><strong>Project Type:</strong> Clearly state what you're building (e.g., "In-ground swimming pool with fence")
+                    </li>
+                    <li><strong>Design Guidelines Reference:</strong> Cite the specific section of Design Guidelines that applies (e.g., "Design Guidelines Section H - Pools")
+                    </li>
+                    <li><strong>Detailed Plans:</strong> Include drawings showing:
+                        <ul>
+                            <li>Site plan with measurements</li>
+                            <li>Distance from property lines (setbacks)</li>
+                            <li>Materials and colors</li>
+                            <li>Elevations/renderings if needed</li>
+                        </ul>
+                    </li>
+                    <li><strong>Compliance Statement:</strong> Explain how your project complies with each Design Guidelines requirement
+                    </li>
+                    <li><strong>City Permits:</strong> If required, include proof of city permits or applications
+                    </li>
+                </ol>
+
+                <h3>How to Submit</h3>
+
+                <p><strong>Recommended Method: Email</strong></p>
+                <ul>
+                    <li>To: arc@kithmanagement.com</li>
+                    <li>Subject: "Architectural Review Request - [Your Address] - [Project Type]"</li>
+                    <li>Include all plans and documents as attachments</li>
+                    <li>Keep a copy for your records</li>
+                </ul>
+
+                <p><strong>Backup Method: Certified Mail</strong></p>
+                <ul>
+                    <li>To: Kith Management, 210-585-2386</li>
+                    <li>Request return receipt</li>
+                    <li>Keep proof of mailing</li>
+                </ul>
+
+                <h3>Timeline for Review (Design Guidelines Section V.D)</h3>
+
+                <div class="rule-item">
+                    <strong>Standard Review Period: 30 days</strong> - The Parten Ranch Reviewer has 30 days to approve or deny your request
+                </div>
+
+                <p>What happens after 30 days:</p>
+                <ul>
+                    <li>If approved: You receive written approval with any conditions</li>
+                    <li>If denied: You receive written denial citing specific Design Guidelines provisions</li>
+                    <li>If no response: Contact Kith Management to confirm receipt</li>
+                </ul>
+
+                <h3>If Your Request is Denied</h3>
+
+                <ol>
+                    <li><strong>Get It in Writing:</strong> Request written denial citing the specific Design Guidelines sections
+                    </li>
+                    <li><strong>Verify the Rule:</strong> Check the Design Guidelines to confirm the cited provision actually says what they claim
+                    </li>
+                    <li><strong>Appeal or Request Reconsideration:</strong>
+                        <ul>
+                            <li>Ask for clarification on which requirement you didn't meet</li>
+                            <li>Propose modifications to comply</li>
+                            <li>Request appeal to full board</li>
+                        </ul>
+                    </li>
+                    <li><strong>Check State Law:</strong> If the rule seems to violate Texas Property Code §202, cite the statute in your appeal
+                    </li>
+                    <li><strong>Document Everything:</strong> Keep all correspondence via email when possible
+                    </li>
+                </ol>
+
+                <h3>If Denied Based on Non-Existent Rule</h3>
+
+                <div class="warning-box">
+                    <h4>What to Do</h4>
+                    <p>If the HOA denies your request citing a rule that doesn't appear in the Design Guidelines:</p>
+                    <ol>
+                        <li>Request they cite the exact section number and page of the provision</li>
+                        <li>If they cannot cite it, inform them the rule is not in the governing documents</li>
+                        <li>Reference §209.00505: architectural review decisions must be based on written governing documents</li>
+                        <li>Respond in writing: "This rule does not appear in the Design Guidelines or Development Area Declaration. Please cite the specific provision."</li>
+                        <li>Request appeal or reconsideration based on lack of documentary support</li>
+                    </ol>
+                </div>
+
+                <h3>Example Submission (Pool Request)</h3>
+
+                <p><strong>Subject Line:</strong><br/>
+                Architectural Review Request - [Your Address], Parten Ranch - In-Ground Swimming Pool</p>
+
+                <p><strong>Body:</strong></p>
+                <p>Dear Parten Ranch Reviewer,</p>
+
+                <p>I am requesting architectural approval for an in-ground swimming pool at [Your Address], Parten Ranch.</p>
+
+                <p>The project complies with Design Guidelines Section H as follows:</p>
+                <ul>
+                    <li>In-ground construction (not above-ground)</li>
+                    <li>6 feet setback from all property lines (exceeding 5-foot requirement)</li>
+                    <li>Pool equipment screened from street view</li>
+                    <li>Pool located in rear yard</li>
+                    <li>Wrought iron fencing per Section G</li>
+                </ul>
+
+                <p>Attached: City of Dripping Springs permit application, site plan with measurements, and fence design.</p>
+
+                <p>Respectfully,<br/>
+                [Your Name]<br/>
+                [Your Address]</p>
+
+                <h3>Key Points to Remember</h3>
+                <ul>
+                    <li>Always cite the Design Guidelines section number</li>
+                    <li>Always include measurements and compliance details</li>
+                    <li>Always keep copies of everything you submit</li>
+                    <li>Always use email with read receipts or certified mail</li>
+                    <li>Always ask for written denial if rejected</li>
+                    <li>Always challenge rules that aren't in the documents</li>
+                    <li>Always reference Texas law protections if applicable</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 17: Helpful Contacts & Resources -->
+        <div class="section" id="section-17">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>17. Helpful Contacts & Resources</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <h3>Parten Ranch HOA & Management</h3>
+
+                <div class="rule-item">
+                    <strong>Kith Management (HOA Manager)</strong><br/>
+                    Architectural Review (ARC): arc@kithmanagement.com<br/>
+                    Phone: 210-585-2386<br/>
+                    Hours: Typically Monday-Friday, 8am-5pm
+                </div>
+
+                <h3>City of Dripping Springs</h3>
+
+                <div class="rule-item">
+                    <strong>Building Department</strong><br/>
+                    Website: cityofdrippingsprings.com/building-department<br/>
+                    For: Building permits, fence permits, construction standards, land development code
+                </div>
+
+                <h3>Hays County</h3>
+
+                <div class="rule-item">
+                    <strong>Development Services / Building Permits</strong><br/>
+                    Phone: 512-393-2150<br/>
+                    Website: hayscountytx.gov/permits<br/>
+                    For: County permits outside city limits, recorded documents, plat information
+                </div>
+
+                <div class="rule-item">
+                    <strong>Hays County Clerk's Office (Recorded Documents)</strong><br/>
+                    Phone: 512-393-2271<br/>
+                    Website: hayscountytx.gov/clerk<br/>
+                    For: Accessing the Development Area Declaration and official governing documents
+                </div>
+
+                <h3>Texas HOA Resources</h3>
+
+                <div class="rule-item">
+                    <strong>Texas State Law Library - Property Owners' Association Guide</strong><br/>
+                    Website: guides.sll.texas.gov/property-owners-associations<br/>
+                    Provides: Comprehensive guide to Texas HOA law, resident rights, dispute resolution
+                </div>
+
+                <div class="rule-item">
+                    <strong>Texas Property Code - Chapter 202 (Protective Provisions)</strong><br/>
+                    Website: statutes.capitol.texas.gov/Docs/PR/htm/PR.202.htm<br/>
+                    Provides: Full text of homeowner protections regarding solar panels, flags, generators, etc.
+                </div>
+
+                <div class="rule-item">
+                    <strong>Texas Property Code - Chapter 209 (Owners' Associations)</strong><br/>
+                    Website: statutes.capitol.texas.gov/Docs/PR/htm/PR.209.htm<br/>
+                    Provides: Full text of HOA governance, meeting requirements, fine procedures, dispute resolution
+                </div>
+
+                <h3>Legal Resources</h3>
+
+                <div class="rule-item">
+                    <strong>Texas Apartment Association (TAA) - HOA Resources</strong><br/>
+                    Website: taahq.org<br/>
+                    Provides: Information about homeowner rights and HOA procedures
+                </div>
+
+                <div class="rule-item">
+                    <strong>Community Association Institute (CAI)</strong><br/>
+                    Website: caionline.org<br/>
+                    Provides: National HOA information and professional resources
+                </div>
+
+                <h3>Local Services</h3>
+
+                <div class="rule-item">
+                    <strong>Hays County Animal Control</strong><br/>
+                    Phone: 512-393-2175<br/>
+                    For: Pet regulations, leash law enforcement
+                </div>
+
+                <h3>Finding Legal Help</h3>
+
+                <p>If you believe the HOA is violating your rights:</p>
+
+                <ul>
+                    <li><strong>Real Estate Attorney:</strong> Consult for disputes involving significant amounts or complex issues. Look for attorneys in Austin specializing in HOA law.</li>
+                    <li><strong>Texas State Bar Referral:</strong> Website: texasbar.com/lawyers. Find attorneys by specialty.</li>
+                    <li><strong>Legal Aid:</strong> If you cannot afford an attorney, contact Texas RioGrande Legal Aid (512-443-8844) for possible assistance.</li>
+                </ul>
+
+                <h3>How to Access Governing Documents</h3>
+
+                <p><strong>Option 1: From Hays County Clerk</strong></p>
+                <ol>
+                    <li>Visit Hays County Clerk's office in San Marcos</li>
+                    <li>Request: "Development Area Declaration for Parten Ranch" and related documents</li>
+                    <li>May be available online via Hays County's digital records system</li>
+                </ol>
+
+                <p><strong>Option 2: From Kith Management</strong></p>
+                <ol>
+                    <li>Request: "The current Development Area Declaration, Design Guidelines, and Community Manual for Parten Ranch"</li>
+                    <li>Email: arc@kithmanagement.com or call 210-585-2386</li>
+                    <li>They are required to provide these documents (§209.0055)</li>
+                </ol>
+
+                <p><strong>Option 3: Recorded with Property</strong></p>
+                <ol>
+                    <li>If you have a recent title report, it may reference the declaration document number</li>
+                    <li>Search Hays County records using this document number</li>
+                </ol>
+
+                <h3>Important: Know Your Rights</h3>
+
+                <p>When dealing with the HOA, remember:</p>
+                <ul>
+                    <li>You have rights under Texas law that cannot be waived by HOA documents</li>
+                    <li>HOA rules must be in the written governing documents</li>
+                    <li>You have the right to a fair hearing before fines are imposed</li>
+                    <li>You can access HOA records and attend meetings</li>
+                    <li>State law protections (solar panels, flags, generators, etc.) override HOA restrictions</li>
+                </ul>
+
+                <p>Never hesitate to request written documentation of rules and to challenge rules that don't appear in the governing documents or that conflict with state law.</p>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>Created by Parten Ranch residents, for Parten Ranch residents</strong></p>
+        <p>This guide is for informational purposes only and does not constitute legal advice. Always verify with original governing documents and consult an attorney for legal matters.</p>
+        <p>Last updated: March 2026 &middot; Source documents available at Hays County Clerk's office and through Kith Management</p>
+    </div>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">&#8593;</button>
+
+    <script>
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    const sections = document.querySelectorAll('.section');
+    const searchResultsCount = document.getElementById('searchResultsCount');
+
+    function highlightText(element, text) {
+        if (!text) return;
+        const escapedText = text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`(${escapedText})`, 'gi');
+        const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+        const nodesToReplace = [];
+        let node;
+        while (node = walker.nextNode()) {
+            if (regex.test(node.nodeValue)) {
+                nodesToReplace.push(node);
+                regex.lastIndex = 0;
+            }
+        }
+        nodesToReplace.forEach(node => {
+            const span = document.createElement('span');
+            span.innerHTML = node.nodeValue.replace(
+                new RegExp(`(${escapedText})`, 'gi'),
+                '<span class="highlight">$1</span>'
+            );
+            node.parentNode.replaceChild(span, node);
+        });
+    }
+
+    function removeHighlights() {
+        document.querySelectorAll('.highlight').forEach(el => {
+            const parent = el.parentNode;
+            while (el.firstChild) parent.insertBefore(el.firstChild, el);
+            parent.removeChild(el);
+        });
+    }
+
+    searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.trim();
+        removeHighlights();
+        let matchCount = 0;
+
+        if (searchTerm === '') {
+            sections.forEach(section => {
+                section.style.display = 'block';
+                const content = section.querySelector('.section-content');
+                if (content) content.classList.remove('active');
+            });
+            // Re-open first section
+            const first = document.querySelector('.section-content');
+            if (first) {
+                first.classList.add('active');
+                const icon = first.previousElementSibling.querySelector('.toggle-icon');
+                if (icon) icon.classList.remove('collapsed');
+            }
+            searchResultsCount.textContent = '';
+            return;
+        }
+
+        const escapedTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        sections.forEach(section => {
+            const content = section.querySelector('.section-content');
+            const text = section.innerText.toLowerCase();
+            const matches = (text.match(new RegExp(escapedTerm.toLowerCase(), 'g')) || []).length;
+            if (matches > 0) {
+                section.style.display = 'block';
+                content.classList.add('active');
+                const icon = section.querySelector('.toggle-icon');
+                if (icon) icon.classList.remove('collapsed');
+                highlightText(section, searchTerm);
+                matchCount += matches;
+            } else {
+                section.style.display = 'none';
+            }
+        });
+
+        searchResultsCount.textContent = matchCount > 0
+            ? `Found ${matchCount} match${matchCount !== 1 ? 'es' : ''}`
+            : 'No results found';
+    });
+
+    // Toggle section
+    function toggleSection(header) {
+        const content = header.nextElementSibling;
+        const icon = header.querySelector('.toggle-icon');
+        content.classList.toggle('active');
+        icon.classList.toggle('collapsed');
+    }
+
+    // Back to top
+    const backToTopButton = document.getElementById('backToTop');
+    window.addEventListener('scroll', function() {
+        backToTopButton.classList.toggle('visible', window.scrollY > 400);
+    });
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Sidebar active tracking
+    const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                sidebarLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                });
+            }
+        });
+    }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+
+    document.querySelectorAll('.section[id]').forEach(section => observer.observe(section));
+
+    // Mobile sidebar
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.querySelector('.sidebar-overlay');
+
+    function openSidebar() {
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (overlay) overlay.addEventListener('click', closeSidebar);
+
+    // Close sidebar on nav click (mobile)
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 900) closeSidebar();
+        });
+    });
+
+    // Initialize: open first section
+    document.addEventListener('DOMContentLoaded', function() {
+        const firstContent = document.querySelector('.section-content');
+        if (firstContent) {
+            firstContent.classList.add('active');
+            const icon = firstContent.previousElementSibling.querySelector('.toggle-icon');
+            if (icon) icon.classList.remove('collapsed');
+        }
+    });
+
+    </script>
+</body>
+</html>
